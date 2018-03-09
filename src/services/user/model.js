@@ -7,12 +7,17 @@ module.exports = (Schema, {Bcrypt}) => class UserModel extends Model {
     return Schema.findOne({where: {name}})
   }
 
+  static async list () {
+    return Schema.findAll()
+  }
+
   static async create (body) {
     try {
       return await Schema.create({
         name: body.name,
         password: body.password,
-        admin: body.admin
+        admin: body.admin,
+        intolerances: body.intolerances
       })
     } catch (error) {
       DBSchema.validationFailed(error)

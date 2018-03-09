@@ -36,6 +36,14 @@ module.exports = class UserSchema extends Schema {
       admin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
+      },
+      intolerances: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: '',
+        get () {
+          return this.getDataValue('intolerances').split(',').map(str => str.trim())
+        }
       }
     }
   }

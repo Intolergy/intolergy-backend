@@ -28,20 +28,19 @@ module.exports = (Model, Response, {Passport}) => class UserController extends C
     }
   }
 
-  static sessionInfo (user) {
-    return {
-      name: user.name
-    }
-  }
-
-  static session (req, res) {
-    Response.sendData(res, UserController.sessionInfo(req.user))
-  }
-
   static logout (req, res) {
     if (req.isAuthenticated()) {
       req.logout()
     }
     Response.sendOK(res)
+  }
+
+  static async list (req, res) {
+    try {
+      const users = await Model.list()
+      Response.sendData(res, users)
+    } catch (error) {
+      Response.sendError(res, Response.SERVER_ERROR)
+    }
   }
 }
