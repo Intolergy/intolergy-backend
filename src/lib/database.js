@@ -5,6 +5,7 @@ const UserSchema = require('../services/user/schema')
 const VoteSchema = require('../services/vote/schema')
 const PostSchema = require('../services/post/schema')
 const PlaceSchema = require('../services/place/schema')
+const ProductSchema = require('../services/product/schema')
 
 module.exports = class {
   static async connect ({url = '', options = {}, sync = {}} = {}) {
@@ -16,6 +17,7 @@ module.exports = class {
     const Post = PostSchema.define(Sequelize, db)
     const Vote = VoteSchema.define(Sequelize, db)
     const Place = PlaceSchema.define(Sequelize, db)
+    const Product = ProductSchema.define(Sequelize, db)
 
     Post.belongsTo(User, {
       foreignKey: 'fk_user',
@@ -28,6 +30,11 @@ module.exports = class {
     })
 
     Vote.belongsTo(User, {
+      foreignKey: 'fk_user',
+      targetKey: 'name'
+    })
+
+    Product.belongsTo(User, {
       foreignKey: 'fk_user',
       targetKey: 'name'
     })
