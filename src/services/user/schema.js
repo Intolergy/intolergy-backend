@@ -23,6 +23,10 @@ module.exports = class UserSchema extends Schema {
         validate: {
           len: Validation.len(8, 128)
         }
+      },
+      admin: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       }
     }
   }
