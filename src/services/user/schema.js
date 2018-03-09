@@ -32,6 +32,10 @@ module.exports = class UserSchema extends Schema {
           min: 0,
           max: 5
         }
+      },
+      admin: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       }
     }
   }

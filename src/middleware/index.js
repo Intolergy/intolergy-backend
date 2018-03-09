@@ -11,8 +11,10 @@ const Response = require('../base/response')
 const errors = require('./errors')
 const config = require('../config/')
 const auth = require('./auth')
+const admin = require('./admin')
 
 Middleware.register('auth', auth(Response))
+Middleware.register('admin', admin(Response))
 
 module.exports = class extends Middleware {
   firstmiddleware () {}
