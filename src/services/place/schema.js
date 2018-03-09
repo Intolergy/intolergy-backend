@@ -29,6 +29,13 @@ module.exports = class PlaceSchema extends Schema {
           len: Validation.len(0, 280)
         }
       },
+      image: {
+        type: Sequelize.STRING(1000),
+        allowNull: true,
+        validate: {
+          isUrl: true
+        }
+      },
       intolerances: {
         type: Sequelize.STRING,
         allowNull: false,

@@ -21,6 +21,13 @@ module.exports = class PostSchema extends Schema {
           len: Validation.len(1, 140)
         }
       },
+      image: {
+        type: Sequelize.STRING(1000),
+        allowNull: true,
+        validate: {
+          isUrl: true
+        }
+      },
       body: {
         type: Sequelize.STRING(10000),
         allowNull: true,
