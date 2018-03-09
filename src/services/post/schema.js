@@ -27,14 +27,6 @@ module.exports = class PostSchema extends Schema {
         validate: {
           len: Validation.len(0, 10000)
         }
-      },
-      user: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-          len: Validation.len(1, 16),
-          isAlphanumeric: Validation.alphanumeric()
-        }
       }
     }
   }

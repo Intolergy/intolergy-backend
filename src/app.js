@@ -8,6 +8,7 @@ const createUserModel = require('./services/user/model')
 const UserRouter = require('./services/user')
 const VoteRouter = require('./services/vote')
 const PostRouter = require('./services/post')
+const PlaceRouter = require('./services/place')
 const Passport = require('./lib/passport/')
 const Bcrypt = require('./lib/bcrypt')
 
@@ -22,6 +23,7 @@ module.exports = class App extends mix(Router, Middleware) {
     this.mount(UserRouter)
     this.mount(VoteRouter)
     this.mount(PostRouter)
+    this.mount(PlaceRouter)
     console.log('/*************************************************************/\n')
   }
 }
