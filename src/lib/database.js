@@ -2,6 +2,7 @@
 const Sequelize = require('sequelize')
 
 const UserSchema = require('../services/user/schema')
+const VoteSchema = require('../services/vote/schema')
 
 module.exports = class {
   static async connect ({url = '', options = {}, sync = {}} = {}) {
@@ -10,6 +11,12 @@ module.exports = class {
     const db = new Sequelize(url, options)
 
     const User = UserSchema.define(Sequelize, db)
+    const Vote = VoteSchema.define(Sequelize, db)
+
+    Vote.belongsTo(User, {
+      foreignKey: 'fk_user',
+      targetKey: 'name'
+    })
     
     await db.sync(sync)
     return db

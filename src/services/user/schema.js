@@ -23,6 +23,15 @@ module.exports = class UserSchema extends Schema {
         validate: {
           len: Validation.len(8, 128)
         }
+      },
+      reputation: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1,
+        validate: {
+          min: 0,
+          max: 5
+        }
       }
     }
   }
