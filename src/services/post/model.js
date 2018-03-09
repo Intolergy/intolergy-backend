@@ -3,21 +3,11 @@ const Model = require('../../base/model')
 const DBSchema = require('./schema')
 
 module.exports = (Schema) => class PostModel extends Model {
-  static async create(body) {
-    try {
-      return await Schema.create(body)
-    } catch (error) {
-      DBSchema.validationFailed(error)
-      throw error
-    }
+  static create(body) {
+    return Schema.create(body)
   }
 
-  static async list(body) {
-    try {
-      return await Schema.findAll({ where: body })
-    } catch (error) {
-      DBSchema.validationFailed(error)
-      throw error
-    }
+  static list (body = {}) {
+    return Schema.findAll({ where: body })
   }
 }

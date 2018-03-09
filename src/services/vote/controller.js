@@ -8,6 +8,7 @@ module.exports = (Model, Response) => class VoteController extends Controller {
         const votes = await Model.getVotesOf(type, req.params.id)
         Response.sendData(res, votes)
       } catch (error) {
+        console.log(error)
         Response.sendError(res, Response.NOT_FOUND)
       }
     }

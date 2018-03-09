@@ -17,7 +17,7 @@ module.exports = class extends Router {
   }
 
   routes() {
-    this.post('/create', 'admin', Router.wrap(this.Controller.create))
-    this.get('/list', 'auth', Router.wrap(this.Controller.list))
+    this.post('/', 'admin', Router.wrap(this.Controller.create))
+    this.get('/', 'auth', Router.wrap(this.Controller.list))
   }
 }

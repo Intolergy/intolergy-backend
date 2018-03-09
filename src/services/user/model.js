@@ -11,7 +11,8 @@ module.exports = (Schema, {Bcrypt}) => class UserModel extends Model {
     try {
       return await Schema.create({
         name: body.name,
-        password: body.password
+        password: body.password,
+        admin: body.admin
       })
     } catch (error) {
       DBSchema.validationFailed(error)

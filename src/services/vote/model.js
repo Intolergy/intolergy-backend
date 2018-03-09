@@ -3,7 +3,7 @@ const Model = require('../../base/model')
 
 module.exports = (Schema) => class VoteModel extends Model {
   static async getVotesOf (type, id) {
-    const votes = Schema.findOne({where: {
+    const votes = Schema.findAll({where: {
       type,
       targetId: id
     }})
@@ -30,8 +30,8 @@ module.exports = (Schema) => class VoteModel extends Model {
       targetId: id
     }
     
-    const exists = await VoteModel.findOne(name, type, id)
-    if (exists.id) {
+    const exists = await VoteModel.findOne(user.name, type, id)
+    if (exists != null && exists.id) {
       query.id = exists.id
     }
     return Schema.upsert(query)

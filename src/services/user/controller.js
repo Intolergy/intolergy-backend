@@ -16,7 +16,7 @@ module.exports = (Model, Response, {Passport}) => class UserController extends C
     try {
       const user = await Passport.authenticate(req, res, next, 'local')
       await Passport.login(req, user)
-      Response.sendData(res, UserController.sessionInfo(user))
+      Response.sendOK(res)
     } catch (error) {
       if (error === 'Missing credentials' || error === 'WrongAccount') {
         Response.sendError(res, Response.CUSTOM_BAD_REQUEST({
