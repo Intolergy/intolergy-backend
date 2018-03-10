@@ -7,9 +7,8 @@
   "author": "",
   "license": "GPL-3.0",
   "scripts": {
-    "dev": "nodemon --exec 'npm run up' --watch ./src",
-    "up": "node index.js",
-    "start": "NODE_ENV=production forever start -c node index.js"
+    "dev": "nodemon --exec 'npm start' --watch ./src",
+    "start": "node index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -17,7 +16,6 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "forever": "^0.15.3",
     "mixin-es6": "^1.0.1",
     "morgan": "^1.9.0",
     "mysql2": "^1.5.2",
