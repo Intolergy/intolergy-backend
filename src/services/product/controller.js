@@ -23,8 +23,9 @@ module.exports = (Model, Response, {Carrefour}) => class ProductController exten
   static async carrefourSearch (req, res) {
     try {
       const products = await Carrefour.search(req.query.q)
-      Response.sendData(res, products.data.list)
+      Response.sendData(res, products)
     } catch (error) {
+      console.log(error)
       Response.sendError(res, Response.SERVER_ERROR)
     }
   }
