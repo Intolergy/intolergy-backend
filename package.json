@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "nodemon --exec 'npm run up' --watch ./src",
     "up": "node index.js",
-    "start": "NODE_ENV=production forever -c npm run up"
+    "start": "NODE_ENV=production forever"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
