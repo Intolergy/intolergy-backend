@@ -1,6 +1,6 @@
 {
   "name": "intolergy-backend",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Hackathon-develop app for discovering valid products for intolerants (backend)",
   "main": "index.js",
   "repository": "git@github.com:Intolergy/intolergy-backend.git",
